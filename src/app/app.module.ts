@@ -8,6 +8,12 @@ import { HeroDetailComponent } from './components/hero-detail/hero-detail.compon
 import { MessagesComponent } from './components/messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HttpClientModule } from "@angular/common/http";
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService} from "./services/in-memory/in-memory-data.service";
+import { HeroSearchComponent } from './components/hero-search/hero-search.component';
+import { HeroFormComponent } from './components/hero-form/hero-form.component';
+import {TableModule} from "primeng/table";
 
 @NgModule({
   declarations: [
@@ -15,13 +21,20 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroSearchComponent,
+    HeroFormComponent
   ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        AppRoutingModule
-    ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, {dataEncapsulation: false}
+    ),
+    TableModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

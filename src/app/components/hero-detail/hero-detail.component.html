@@ -7,6 +7,29 @@
     <label for="hero-name">Hero name: </label>
     <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
   </div>
+  <div>
+    <label for="age">Age: </label>
+    <input id="age" [(ngModel)]="hero.age" placeholder="age">
+  </div>
+  <div>
+    <label for="adresse">Adresse: </label>
+    <input id="adresse" [(ngModel)]="hero.adresse" placeholder="adresse">
+  </div>
+  <div>
+    <label for="guild">Guild: </label>
+    <input id="guild" [(ngModel)]="hero.name" placeholder="Guild">
+  </div>
+  <div>
+    <label for="power">Power: </label>
+    <input id="power" [(ngModel)]="hero.power" placeholder="Power">
+  </div>
+  <div>
+    <label for="dateDeNaissance">Date de naissance: </label>
+    <input id="dateDeNaissance" [(ngModel)]="hero.dateDeNaissance" placeholder="Date De Naissance">
+  </div>
+
 </div>
 
 <button (click)="goBack()">go back</button>
+
+<button (click)="save()">Save</button>
