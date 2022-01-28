@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Hero} from "../../interfaces/hero";
 import {HeroService} from "../../services/hero/hero.service";
 import {MessageService} from "../../services/message/message.service";
+import {SortEvent} from "primeng/api";
 
 @Component({
   selector: 'app-heroes',
@@ -13,6 +14,8 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
 
   cols: any[] = [];
+
+  first: number = 0;
 
   selectedHero?: Hero;
 
@@ -29,7 +32,7 @@ export class HeroesComponent implements OnInit {
       { field: 'power', header: 'Power'},
       { field: 'dateDeNaissance', header: 'Date de naissance'},
       { field: 'alterEgo', header: 'Alter ego'},
-    ]
+    ];
   }
 
   getHeroes(): void {
@@ -51,6 +54,22 @@ export class HeroesComponent implements OnInit {
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroService.deleteHero(hero.id).subscribe();
+  }
+
+  reset() {
+    this.first = 0;
+  }
+
+  isDate(field: string): boolean {
+    return field === 'dateDeNaissance';
+  }
+
+  isId(field: string): boolean {
+    return field === 'id';
+  }
+
+  getEventValue($event:any) :string {
+    return $event.target.value;
   }
 
 }

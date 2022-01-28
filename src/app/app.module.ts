@@ -14,6 +14,9 @@ import { InMemoryDataService} from "./services/in-memory/in-memory-data.service"
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 import { HeroFormComponent } from './components/hero-form/hero-form.component';
 import {TableModule} from "primeng/table";
+import {ButtonModule} from "primeng/button";
+import {InputTextModule} from "primeng/inputtext";
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -34,6 +37,10 @@ import {TableModule} from "primeng/table";
       InMemoryDataService, {dataEncapsulation: false}
     ),
     TableModule,
+    ButtonModule,
+    InputTextModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
