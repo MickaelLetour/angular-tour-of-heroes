@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Hero} from "../../interfaces/hero";
-import {Observable, of} from "rxjs";
+import {filter, map, Observable, of, switchMap} from "rxjs";
 import {MessageService} from "../message/message.service";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import { catchError, map, tap } from "rxjs/operators";
+import { catchError, tap } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -75,8 +75,9 @@ export class HeroService {
       return of ([]);
     }
     return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
-      tap(x => x.length ? this.log(`found heroes matching "${term}"`) : this.log(`no heoroes martching "${term}"`)),
+      tap(x => x.length ? this.log(`found heroes matching "${term}"`) : this.log(`no heroes martching "${term}"`)),
       catchError(this.handleError<Hero[]>(`searchHeroes`, []))
     );
   }
+
 }

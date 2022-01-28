@@ -17,6 +17,10 @@ import {TableModule} from "primeng/table";
 import {ButtonModule} from "primeng/button";
 import {InputTextModule} from "primeng/inputtext";
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {AutoCompleteModule} from "primeng/autocomplete";
+import {CalendarModule} from "primeng/calendar";
+import {CheckboxModule} from "primeng/checkbox";
+import {RadioButtonModule} from "primeng/radiobutton";
 
 @NgModule({
   declarations: [
@@ -40,7 +44,11 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-b
     ButtonModule,
     InputTextModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    AutoCompleteModule,
+    CalendarModule,
+    CheckboxModule,
+    RadioButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

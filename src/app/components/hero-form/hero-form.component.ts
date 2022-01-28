@@ -11,6 +11,10 @@ export class HeroFormComponent implements OnInit {
 
   heroes: Hero[] = [];
 
+  text: string = '';
+
+  results: string[] = [];
+
   powers = ['Really smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
 
   model = new Hero(0,'',0,'','','',new Date());
@@ -36,5 +40,12 @@ export class HeroFormComponent implements OnInit {
         this.heroes.push(hero);
       });
   }
+
+  // search(event: any) {
+  //   this.heroService.getHeroes(event.query)
+  //     .then(data => {
+  //       this.results = data;
+  //   });
+  // }
 
 }
