@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {debounceTime, distinctUntilChanged, filter, Observable, Subject, switchMap} from "rxjs";
+import { Observable, Subject } from "rxjs";
 import {Hero} from "../../interfaces/hero";
 import {HeroService} from "../../services/hero/hero.service";
 
@@ -10,10 +10,11 @@ import {HeroService} from "../../services/hero/hero.service";
 })
 export class HeroSearchComponent implements OnInit {
 
-  heroes$!: Observable<Hero[]>|any;
+  heroes$!: Observable<Hero[]>;
+
+  resultFiltered: Hero[] = [];
 
   autoComplete: string = '';
-  resultsAutoComplete: Hero[] = [];
 
   date: Date = new Date();
 
@@ -21,29 +22,14 @@ export class HeroSearchComponent implements OnInit {
 
   selectedValuesRadioButton: string = 'val 1';
 
-  private searchTerms = new Subject<string>();
-
   constructor(private heroService : HeroService) { }
 
   search(event:any){
-    this.searchTerms.next(event.query);
+    this.heroes$ = this.heroService.searchHeroes(event.query);
+    this.heroes$.subscribe(heroes => this.resultFiltered = heroes);
   }
 
   ngOnInit(): void {
-    // this.heroes$ = this.searchTerms.pipe(
-    //   debounceTime(300),
-    //   distinctUntilChanged(),
-    //   switchMap((term: string) => this.heroService.searchHeroes(term)),
-    // );
-    this.searchTerms.asObservable().pipe(
-      filter(text => text.length >=3),
-      debounceTime(300),
-      distinctUntilChanged(),
-      switchMap(term => this.heroService.searchHeroes(term)))
-        .subscribe(hero => {
-          this.resultsAutoComplete = hero;
-        }
-    )
   }
 
 }

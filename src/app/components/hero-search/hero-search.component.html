@@ -1,8 +1,8 @@
 <div class="p-fluid grid d-flex flex-wrap form-grid">
 
   <div class="field col-12 col-md-6 col-xl-3 p-3 m-auto">
-    <label for="autoComplete">AutoComplete</label>
-    <p-autoComplete #sb id="autoComplete" [(ngModel)]="autoComplete" name="autoComplete" field="autoComplete" [suggestions]="resultsAutoComplete" (input)="search($event)"></p-autoComplete>
+    <label>AutoComplete</label>
+    <p-autoComplete [(ngModel)]="autoComplete" field="name" [suggestions]="resultFiltered" (completeMethod)="search($event)"></p-autoComplete>
   </div>
 
   <div class="field col-12 col-md-6 col-xl-3  p-3">
