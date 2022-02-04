@@ -1,0 +1,48 @@
+<div class="p-fluid grid mt-5">
+
+  <div class="field col-12 md:col-6 lg:col-3 flex align-items-center">
+    <span class="p-float-label w-full">
+      <p-autoComplete id="autoComplete" field="name" [suggestions]="resultFiltered" (completeMethod)="search($event)"></p-autoComplete>
+      <label for="autoComplete">Auto Complete</label>
+    </span>
+  </div>
+
+  <div class="field col-12 md:col-6 lg:col-3 flex align-items-center">
+    <span class="p-float-label w-full">
+      <p-calendar id="calendar" [(ngModel)]="date" class="w-full"></p-calendar>
+      <label for="calendar">Calendar</label>
+    </span>
+  </div>
+
+  <div class="field col-12 md:col-6 lg:col-3 flex align-items-center justify-content-center">
+      <div class="">
+        <p-checkbox name="groupname" value="val1" label="Value 1" [(ngModel)]="selectedValuesCheckBox" class="col-6"></p-checkbox>
+        <p-checkbox name="groupname" value="val2" label="Value 2" [(ngModel)]="selectedValuesCheckBox" class="col-6"></p-checkbox>
+        <p-checkbox name="groupname" value="val3" label="Value 3" [(ngModel)]="selectedValuesCheckBox" class="col-6"></p-checkbox>
+        <p-checkbox name="groupname" value="val4" label="Value 4" [(ngModel)]="selectedValuesCheckBox" class="col-6"></p-checkbox>
+      </div>
+  </div>
+
+  <div class="field col-12 md:col-6 lg:col-3 flex align-items-center justify-content-center">
+    <div class="m-2">
+      <p-radioButton name="groupname" id="val1" value="val 1" [(ngModel)]="selectedValuesRadioButton"></p-radioButton>
+      <label for="val1">Valeur 1</label>
+    </div>
+    <div class="m-2">
+      <p-radioButton name="groupname" id="val2" value="val 2" [(ngModel)]="selectedValuesRadioButton"></p-radioButton>
+      <label for="val2">valeur 2</label>
+    </div>
+    <div class="m-2">
+      <p-radioButton name="groupname" id="val3" value="val 3" [(ngModel)]="selectedValuesRadioButton"></p-radioButton>
+      <label for="val3">Valeur 3</label>
+    </div>
+    <div class="m-2">
+      <p-radioButton name="groupname" id="val4" value="val 4" [(ngModel)]="selectedValuesRadioButton"></p-radioButton>
+      <label for="val4">Valeur 4</label>
+    </div>
+  </div>
+
+</div>
+
+
+

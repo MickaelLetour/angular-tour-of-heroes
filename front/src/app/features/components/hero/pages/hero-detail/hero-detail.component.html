@@ -1,0 +1,34 @@
+<div *ngIf="hero" class="p-fluid mt-5 w-4 m-auto">
+
+  <h2>{{hero.name | uppercase }}</h2>
+
+  <form >
+    <div class="form-group field">
+      <label for="hero-name">Nom: </label>
+      <input type="text" pInputText id="hero-name" [(ngModel)]="hero.name" name="name">
+    </div>
+    <div class="form-group field">
+      <label for="age">Age: </label>
+      <p-inputNumber id="age" [(ngModel)]="hero.age" name="age"></p-inputNumber>
+    </div>
+    <div class="form-group field">
+      <label for="role">Rôle: </label>
+      <input type="text" pInputText id="role" [(ngModel)]="hero.roleName" name="role">
+    </div>
+    <div class="form-group field">
+      <label for="region">Région: </label>
+      <input type="text" pInputText id="region" [(ngModel)]="hero.regionName" name="region">
+    </div>
+    <div class="form-group field">
+      <label for="date">Date d'ajout: </label>
+      <input type="text" pInputText id="date" [(ngModel)]="hero.date" name="date">
+    </div>
+  </form>
+
+  <div class="flex justify-content-between">
+    <p-button (click)="goBack()">go back</p-button>
+    <p-button (click)="save()">Save</p-button>
+  </div>
+
+</div>
+
